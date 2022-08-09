@@ -1,0 +1,14 @@
+.form-group.excerpt .CodeMirror {
+    height: 130px;
+    min-height: 130px;
+}
+a.selected-status {
+    font-weight: bold;
+}
+
+#toast-container.nopacity > div {
+    opacity: 1;
+}
+#toast-container > div {
+    opacity:1;
+}

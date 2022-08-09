@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Requests;
+
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class AdminAccountUpdateRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'name'     => 'required',
+            'email'    => 'required', 'email', 'unique:admins,email,' . auth()->user()->id,
+            'password' => 'required_with:password_confirmation|confirmed',
+            'role'     => 'required',
+            'slug'     => 'required|unique:admins,slug,' . auth()->user()->id,        
+        ];
+    }
+}
